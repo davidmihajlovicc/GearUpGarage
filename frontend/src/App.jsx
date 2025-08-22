@@ -13,7 +13,7 @@ import Admin from './pages/Admin';
 import { useEffect } from 'react';
 import Footer from './components/Footer';
 import About from './pages/About';
-
+import Orders from './pages/Orders';
 export default function App() {
   return (
     <div className="app">         
@@ -33,6 +33,7 @@ export default function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/about" element={<About />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </main>
 

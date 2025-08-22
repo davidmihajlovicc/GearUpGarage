@@ -30,6 +30,7 @@ export default function Navbar(){
           <Link className={`nav__link ${pathname==='/'?'is-active':''}`} to="/">Home</Link>
           <Link className={`nav__link ${pathname.startsWith('/parts')?'is-active':''}`} to="/parts">Parts</Link>
           <Link className={`nav__link ${pathname.startsWith('/cart')?'is-active':''}`} to="/cart">Cart</Link>
+          <Link className={`nav__link ${pathname.startsWith('/orders')?'is-active':''}`} to="/orders">Orders</Link>
         </div>
         {!token ? (
           <div className="btn-group">
@@ -39,6 +40,7 @@ export default function Navbar(){
         ) : (
           <>
             <Link className={`nav__link ${pathname.startsWith('/profile')?'is-active':''}`} to="/profile">Profile</Link>
+            <Link></Link>
             {isAdmin && (
               <Link className={`nav__link ${pathname.startsWith('/admin')?'is-active':''}`} to="/admin">Admin panel</Link>
             )}
