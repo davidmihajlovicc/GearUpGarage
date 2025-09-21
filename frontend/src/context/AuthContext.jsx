@@ -6,7 +6,7 @@ export const useAuth = () => useContext(AuthCtx);
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem('token') || '');
 
-  // sync s localStorage (npr. kad user ručno obriše token u drugom tabu)
+  
   useEffect(() => {
     const onStorage = (e) => {
       if (e.key === 'token') setToken(e.newValue || '');

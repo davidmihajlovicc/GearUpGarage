@@ -1,4 +1,4 @@
-// backend/services/filters.service.js
+
 const { query } = require('./_db');
 
 async function listBrands() {

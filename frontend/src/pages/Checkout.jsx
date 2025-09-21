@@ -24,7 +24,7 @@ export default function Checkout(){
       setLoading(true);
       try {
         const [prof, c] = await Promise.all([ getProfile(), getCart() ]);
-        setForm(prof ? { ...EMPTY, ...prof } : EMPTY);   // auto-popuni ako postoji
+        setForm(prof ? { ...EMPTY, ...prof } : EMPTY);   
         setCart(c || { items:[], total:0 });
         if (!c || !c.items?.length) nav('/cart');
       } finally { setLoading(false); }
@@ -41,8 +41,8 @@ export default function Checkout(){
       setErr('Please enter all obligatory fields.'); return;
     }
     try{
-      await saveProfile(form);   // spremi/azuriraj profil za dostavu
-      nav('/payment');           // dalje na plaćanje
+      await saveProfile(form);   
+      nav('/payment');           
     }catch(e){
       setErr(e?.response?.data?.error || 'Error while saving data.');
     }

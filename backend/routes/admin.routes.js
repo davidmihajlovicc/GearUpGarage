@@ -1,4 +1,4 @@
-// backend/routes/admin.routes.js
+
 const express = require('express');
 const { verifyToken, requireAdmin } = require('../middleware/auth');
 const ctrl = require('../controllers/admin.controller');

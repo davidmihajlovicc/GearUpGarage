@@ -1,6 +1,6 @@
-import axios from './axios'; // koristi tvoju axios instancu
+import axios from './axios'; 
 
-// --- Users ---
+
 export const adminSearchUsers = (q) =>
   axios.get('/api/admin/users', { params: { q } }).then(r => r.data);
 

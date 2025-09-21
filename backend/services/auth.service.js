@@ -1,4 +1,4 @@
-// backend/services/auth.service.js
+
 const { query } = require('./_db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');

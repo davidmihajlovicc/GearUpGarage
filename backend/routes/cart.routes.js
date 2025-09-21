@@ -1,4 +1,4 @@
-// backend/routes/cart.routes.js
+
 const express = require('express');
 const { verifyToken } = require('../middleware/auth');
 const ctrl = require('../controllers/cart.controller');

@@ -1,4 +1,4 @@
-// backend/routes/profile.routes.js
+
 const express = require('express');
 const { verifyToken } = require('../middleware/auth');
 const ctrl = require('../controllers/profile.controller');

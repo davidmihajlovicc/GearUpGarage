@@ -1,4 +1,4 @@
-// backend/controllers/parts.controller.js
+
 const Parts = require('../services/parts.service');
 const fs = require('fs');
 const path = require('path');

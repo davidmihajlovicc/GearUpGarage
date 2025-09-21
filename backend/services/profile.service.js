@@ -1,4 +1,4 @@
-// backend/services/profile.service.js
+
 const { query } = require('./_db');
 
 async function getProfile(userId) {

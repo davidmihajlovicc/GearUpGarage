@@ -1,13 +1,11 @@
-// src/api/orders.js
+
 import axios from './axios';
 
-// Helper: normalize record (createdAt / created_at)
+
 const normalizeOrder = (o) => ({
   id: o.id ?? o.order_id ?? String(o?.id || ''),
   createdAt: o.createdAt ?? o.created_at ?? o.created_at_iso ?? o.created_at_ts ?? o.created_at ?? '',
   total: Number(o.total ?? o.amount ?? 0),
-  // backend status se ignorira za prikaz, jer tražiš striktno: <24h = preparation, >=24h = shipped
-  // ali čuvamo original za svaki slučaj:
   rawStatus: o.status ?? o.order_status ?? null,
   items: Array.isArray(o.items) ? o.items : [],
 });

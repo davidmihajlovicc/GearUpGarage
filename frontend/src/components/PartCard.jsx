@@ -3,8 +3,7 @@ import { API_ORIGIN } from '../lib/constants';
 
 function resolveImg(image) {
   if (!image) return '';
-  if (image.startsWith('http') || image.startsWith('//')) return image;   // već apsolutno
-  // sve ostalo posluži relativno s istog hosta
+  if (image.startsWith('http') || image.startsWith('//')) return image;   
   return image.startsWith('/uploads')
     ? image
     : `/${String(image).replace(/^\//, '')}`;

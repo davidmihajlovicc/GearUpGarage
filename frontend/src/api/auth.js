@@ -1,4 +1,4 @@
-import axios from './axios'; // ili od tebe gdje već izvezeš axios instance
+import axios from './axios'; 
 
 export const apiLogin = (email, password) =>
   axios.post('/api/login', { email, password }).then(r => r.data);

@@ -1,4 +1,4 @@
-// backend/controllers/cart.controller.js
+
 const Cart = require('../services/cart.service');
 
 exports.get = async (req, res) => {

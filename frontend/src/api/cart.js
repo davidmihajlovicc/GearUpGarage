@@ -1,4 +1,4 @@
-// src/api/cart.js
+
 import axios from './axios';
 
 export const getCart = () => axios.get('/api/cart').then(r => r.data);

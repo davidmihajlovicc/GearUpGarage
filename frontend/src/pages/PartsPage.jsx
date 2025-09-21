@@ -26,12 +26,12 @@ export default function PartsPage() {
     setLoading(false)
   }
 
-  // initial: preload from URL
+  
   useEffect(() => {
     const init = { ...filters, ...q };
     setFilters(init);
     fetchData(init);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [
     q.brand_id, q.model_id, q.part_type_id, q.part_subtype_id,
     q.year_min, q.year_max, q.fuel, q.q

@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { getPart } from '../api';
 import { addToCart } from '../api/cart';
 import { deletePart } from '../api/index';
-import { updatePart } from '../api'; // multipart update
+import { updatePart } from '../api'; 
 
 function getIsAdminFromToken(token) {
   try { return !!JSON.parse(atob(token.split('.')[1])).isAdmin; } catch { return false; }
@@ -120,14 +120,14 @@ export default function PartDetails() {
     };
 
     const fd = new FormData();
-    fd.append('title', (form.name || '').trim());   // ili posebni title field ako ga koristiš
+    fd.append('title', (form.name || '').trim());   
     fd.append('name', (form.name || '').trim());
     fd.append('price', toNullableNum(form.price));
     fd.append('year_from', toNullableNum(form.year_from));
     fd.append('year_to', toNullableNum(form.year_to));
     fd.append('fuel', form.fuel || '');
 
-    // ⬇️ OVDJE – šalji ID-eve, ne string nazive
+    
     fd.append('brand_id', form.brand_id || '');
     fd.append('model_id', form.model_id || '');
     fd.append('part_type_id', form.part_type_id || '');

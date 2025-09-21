@@ -1,4 +1,4 @@
-// src/pages/Admin.jsx
+
 import { useMemo, useState, useEffect } from 'react';
 import {
   getBrands, getModels, getPartTypes, getPartSubtypes, createPart
@@ -25,7 +25,7 @@ export default function Admin() {
 
   if (!token || !isAdmin) return <div>Only for administrators.</div>;
 
-  // -------------------- DODAVANJE DIJELOVA --------------------
+  
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [types, setTypes] = useState([]);
@@ -43,10 +43,10 @@ export default function Admin() {
     part_subtype_id: '',
     year_from: '',
     year_to: '',
-    fuel: '' // ⟵ DODANO
+    fuel: '' 
   });
 
-  // init dropdowns
+
   useEffect(() => {
     (async () => {
       const [b, t] = await Promise.all([getBrands(), getPartTypes()]);
@@ -55,7 +55,7 @@ export default function Admin() {
     })();
   }, []);
 
-  // brand -> models
+ 
   useEffect(() => {
     (async () => {
       if (f.brand_id) setModels(await getModels(f.brand_id));
@@ -64,7 +64,7 @@ export default function Admin() {
     })();
   }, [f.brand_id]);
 
-  // type -> subtypes
+ 
   useEffect(() => {
     (async () => {
       if (f.part_type_id) setSubtypes(await getPartSubtypes(f.part_type_id));
@@ -103,7 +103,7 @@ export default function Admin() {
     }
   };
 
-  // -------------------- KORISNICI --------------------
+  
   const [q, setQ] = useState('');
   const [users, setUsers] = useState([]);
   const search = async () => { try { setUsers(await adminSearchUsers(q)); } catch (e) { alert(e.message); } };
@@ -119,7 +119,7 @@ export default function Admin() {
     <div className="admin-page">
       <h1 className="page-title">Admin panel</h1>
 
-      {/* Forma: dodaj dio */}
+      
       <section className="card">
         <h2 className="section-title">Add new part</h2>
         <form onSubmit={handleSavePart} className="form-grid">
@@ -178,7 +178,7 @@ export default function Admin() {
         </form>
       </section>
 
-      {/* Korisnici */}
+      
       <section className="card">
         <h2 className="section-title">Users</h2>
         <div className="users-search">

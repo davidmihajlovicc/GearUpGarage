@@ -8,13 +8,13 @@ const toArray = (d) => {
   return [];
 };
 
-// dropdowns (safe)
+
 export const getBrands     = async () => toArray((await axios.get('/api/brands')).data);
 export const getModels     = async (brand_id) => toArray((await axios.get('/api/models', { params: { brand_id } })).data);
 export const getPartTypes  = async () => toArray((await axios.get('/api/part-types')).data);
 export const getYears      = async () => toArray((await axios.get('/api/years')).data);
 
-// parts (safe)
+
 export const searchParts = async (params = {}) => {
   try {
     const r = await axios.get('/api/parts', { params });
@@ -30,7 +30,6 @@ export const createPart = (formData) =>
 
 export async function deletePart(id) {
   const token = localStorage.getItem('token');
-  // koristi relativni URL – axios instanca brine o baseURL-u
   return axios.delete(`/api/parts/${id}`, {
     headers: { Authorization: `Bearer ${token}` }
   });

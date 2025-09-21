@@ -1,6 +1,6 @@
-// server.js
+
 require('dotenv').config();
-require('./config/db'); // samo da inicira konekciju i log
+require('./config/db'); 
 
 const app = require('./app');
 

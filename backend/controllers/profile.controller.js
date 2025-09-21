@@ -1,4 +1,4 @@
-// backend/controllers/profile.controller.js
+
 const Profile = require('../services/profile.service');
 
 exports.get = async (req, res) => {

@@ -30,7 +30,7 @@ export default function Orders() {
     try {
       setBusyId(orderId);
       await cancelOrder(orderId);
-      // nakon cancel-a ponovno učitaj listu
+      
       await load();
     } catch (e) {
       alert(e?.response?.data?.message || 'Error.');

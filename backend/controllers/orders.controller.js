@@ -1,4 +1,4 @@
-// backend/controllers/orders.controller.js
+
 const Orders = require('../services/orders.service');
 
 exports.create = async (req, res) => {
@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
   }
 };
 
-// NEW: GET /api/orders?limit=5
+
 exports.list = async (req, res) => {
   try {
     const limit = Math.max(1, Math.min(50, parseInt(req.query.limit || '5', 10)));
@@ -23,7 +23,7 @@ exports.list = async (req, res) => {
   }
 };
 
-// NEW: POST /api/orders/:id/cancel
+
 exports.cancel = async (req, res) => {
   try {
     const orderId = parseInt(req.params.id, 10);

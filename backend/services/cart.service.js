@@ -1,4 +1,4 @@
-// backend/services/cart.service.js
+
 const { query } = require('./_db');
 
 async function getCart(userId) {

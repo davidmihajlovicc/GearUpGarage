@@ -80,7 +80,7 @@ export default function Home() {
           onSubmit={(filters) => {
             const params = new URLSearchParams();
             Object.entries(filters).forEach(([k, v]) => { if (v) params.set(k, v) });
-            if (f.q) params.set('q', f.q); // dodaj i tekstualni upit
+            if (f.q) params.set('q', f.q); 
             nav(`/parts?${params.toString()}`);
           }}
         />

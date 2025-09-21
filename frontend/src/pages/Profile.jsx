@@ -13,9 +13,9 @@ export default function Profile() {
     city: '', postal_code: '', country: 'Hrvatska',
   };
 
-  const [profile, setProfile] = useState(null);       // spremljeni podatci (view)
-  const [form, setForm] = useState(EMPTY);            // draft za uređivanje
-  const [editing, setEditing] = useState(true);       // true=forma, false=prikaz
+  const [profile, setProfile] = useState(null);       
+  const [form, setForm] = useState(EMPTY);            
+  const [editing, setEditing] = useState(true);       
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState('');
   const [err, setErr] = useState('');
@@ -25,15 +25,15 @@ export default function Profile() {
     (async () => {
       setLoading(true);
       try {
-        const data = await getProfile();              // očekuje null ili objekt
+        const data = await getProfile();              
         if (data) {
           setProfile(data);
           setForm({ ...EMPTY, ...data });
-          setEditing(false);                          // <-- prikaži pregled (NE formu)
+          setEditing(false);                          
         } else {
           setProfile(null);
           setForm(EMPTY);
-          setEditing(true);                           // nema profila → otvori formu
+          setEditing(true);                           
         }
       } finally {
         setLoading(false);
@@ -48,10 +48,9 @@ export default function Profile() {
     setErr(''); setMsg('');
     try {
       await saveProfile(form);
-      // nakon spremanja ponovno učitaj s backend-a (ili barem prikaži ono što si poslao)
       const fresh = await getProfile().catch(() => null);
       setProfile(fresh || form);
-      setEditing(false);                              // <-- prebacivanje u VIEW
+      setEditing(false);                              
       setMsg('Profile saved.');
     } catch (e) {
       setErr(e?.response?.data?.error || 'Error while saving profile details.');
@@ -61,7 +60,7 @@ export default function Profile() {
   function onCancel(){
     if (profile) {
       setForm({ ...EMPTY, ...profile });
-      setEditing(false);                              // natrag u VIEW
+      setEditing(false);                              
     } else {
       setForm(EMPTY);
       setEditing(true);
@@ -83,8 +82,7 @@ export default function Profile() {
     />
   );
 
-  // === VIEW MODE ===
-  // === VIEW MODE ===
+
   if (!editing && profile) {
     return (
       <div className="page profile-page">
@@ -93,12 +91,12 @@ export default function Profile() {
 
         <div className="form-section profile-view">
           <div className="profile-layout">
-            {/* Avatar lijevo */}
+            
             <div className="profile-avatar">
               <Avatar url={profile.avatar_url} size={120} />
             </div>
 
-            {/* Tekst desno */}
+            
             <div className="profile-info">
               <div><strong>Name:</strong> {profile.full_name}</div>
               <div><strong>Telephone:</strong> {profile.phone}</div>

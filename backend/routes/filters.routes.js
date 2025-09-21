@@ -1,4 +1,4 @@
-// backend/routes/filters.routes.js
+
 const express = require('express');
 const ctrl = require('../controllers/filters.controller');
 

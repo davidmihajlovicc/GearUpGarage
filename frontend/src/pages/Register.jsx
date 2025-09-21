@@ -17,7 +17,7 @@ export default function Register() {
     if (password !== confirm){ setErr('Lozinke se ne podudaraju.'); return; }
     setLoading(true);
     try{
-      await apiRegister(email, password); // server ignorira is_admin
+      await apiRegister(email, password); 
       setOk('Registracija uspješna. Sada se možete prijaviti.');
       setTimeout(()=> nav('/login'), 600);
     }catch(e){

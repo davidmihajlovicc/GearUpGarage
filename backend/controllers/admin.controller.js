@@ -1,4 +1,4 @@
-// backend/controllers/admin.controller.js
+
 const Admin = require('../services/admin.service');
 
 exports.searchUsers = async (req, res) => {

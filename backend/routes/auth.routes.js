@@ -1,4 +1,4 @@
-// backend/routes/auth.routes.js
+
 const express = require('express');
 const ctrl = require('../controllers/auth.controller');
 

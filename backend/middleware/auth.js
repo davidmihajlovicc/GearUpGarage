@@ -8,7 +8,7 @@ exports.verifyToken = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'tajna123');
-    req.user = decoded; // { id, email, isAdmin, ... }
+    req.user = decoded; 
     next();
   } catch (e) {
     return res.status(401).json({ message: 'Invalid token' });

@@ -1,4 +1,4 @@
-// backend/controllers/filters.controller.js
+
 const Filters = require('../services/filters.service');
 
 exports.brands = async (_req, res) => {

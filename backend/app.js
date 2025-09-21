@@ -1,4 +1,4 @@
-// app.js
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -16,20 +16,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// statičke slike
+
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
-// mount rute
-app.use('/api', authRoutes);          // /api/login, /api/register
-app.use('/api', filtersRoutes);       // /api/brands, /api/models, /api/part-types, /api/years
-app.use('/api/parts', partsRoutes);   // /api/parts (GET/POST)
-app.use('/api/orders', ordersRoutes); // /api/orders
+
+app.use('/api', authRoutes);          
+app.use('/api', filtersRoutes);       
+app.use('/api/parts', partsRoutes);   
+app.use('/api/orders', ordersRoutes); 
 app.use('/api', filtersRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', profileRoutes);
 app.use('/api/admin', adminRoutes);
 
-// healthcheck (opcija)
+
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
 
 module.exports = app;

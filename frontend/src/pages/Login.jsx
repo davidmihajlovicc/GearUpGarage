@@ -1,4 +1,4 @@
-// src/pages/Login.jsx
+
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { apiLogin } from '../api/auth';
@@ -18,16 +18,16 @@ export default function Login() {
     setLoading(true);
 
     try{
-      // očisti stare krive zapise
+      
       localStorage.removeItem('user');
 
-      const { token, user } = await apiLogin(email, password); // očekuje {token, user}
+      const { token, user } = await apiLogin(email, password); 
       console.log('Login got token:', !!token, 'user:', user);
 
       if (!token) throw new Error('No token from backend');
 
-      setAuthToken(token); // tvoj AuthContext (ne smije brisati localStorage.user!)
-      // user je već spremljen u apiLogin (ako postoji)
+      setAuthToken(token); 
+      
       nav('/parts');
     }catch(e){
       console.error('Login error:', e);

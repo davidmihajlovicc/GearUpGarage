@@ -1,4 +1,4 @@
-// backend/services/parts.service.js
+
 const { query } = require('./_db');
 
 function buildWhere(filters = {}) {

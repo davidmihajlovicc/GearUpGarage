@@ -1,4 +1,4 @@
-// backend/services/admin.service.js
+
 const { query } = require('./_db');
 
 async function searchUsers(q = '') {

@@ -12,7 +12,7 @@ export default function Payment() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState('');
 
-  // --- NOVO: polja za karticu ---
+
   const [cardName, setCardName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [cardExp, setCardExp] = useState('');
@@ -52,7 +52,7 @@ export default function Payment() {
     }
   }
 
-  // --- Validacija ---
+
   const cardNumberValid = cardNumber.replace(/\\s+/g, '').length === 16;
   const cvcValid = cardCvc.length === 3;
   const nameValid = cardName.trim().length > 0;
@@ -66,7 +66,7 @@ export default function Payment() {
       <h2 className="page-title">Payment</h2>
 
       <div className="payment-grid">
-        {/* Forma za plaćanje */}
+        
         <div className="payment-form">
           <h3 className="section-title">Payment data</h3>
 

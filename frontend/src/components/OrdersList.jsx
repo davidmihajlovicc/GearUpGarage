@@ -1,4 +1,4 @@
-// src/components/OrdersList.jsx
+
 import React, { useMemo } from 'react';
 
 const CUTOFF_MS = 24 * 60 * 60 * 1000;

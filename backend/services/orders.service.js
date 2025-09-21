@@ -1,10 +1,9 @@
-// backend/services/orders.service.js
+
 const { query } = require('./_db');
 
 const CUTOFF_MS = 24 * 60 * 60 * 1000;
 
 async function createOrder(userId, partId, qty = 1) {
-  // izračunaj total na temelju cijene dijela
   const part = (await query('SELECT id, price FROM parts WHERE id = ?', [partId]))?.[0];
   if (!part) throw new Error('Part not found');
 
@@ -18,7 +17,7 @@ async function createOrder(userId, partId, qty = 1) {
   return { success: true };
 }
 
-// Dohvati zadnje narudžbe korisnika (sortirano, limit)
+
 async function getUserOrders(userId, limit = 5) {
   const rows = await query(
     `
@@ -49,7 +48,7 @@ async function getUserOrders(userId, limit = 5) {
   }));
 }
 
-// Otkazivanje ako < 24h: brišemo zapis (jer tablica nema status kolonu)
+
 async function cancelOrder(userId, orderId) {
   const row = (await query(
     'SELECT id, user_id, order_date FROM orders WHERE id = ? AND user_id = ?',

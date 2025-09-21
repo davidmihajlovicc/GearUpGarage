@@ -1,4 +1,4 @@
-// src/pages/Cart.jsx
+
 import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { getCart, setCartQty, removeFromCart, checkout } from '../api/cart';
@@ -32,7 +32,7 @@ export default function Cart() {
   }
   // ...
     async function doCheckout(){
-    nav('/checkout'); // ⇦ umjesto direktnog API checkouta
+    nav('/checkout'); 
     }
 
 

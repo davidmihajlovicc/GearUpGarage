@@ -1,4 +1,4 @@
-// backend/routes/parts.routes.js
+
 const express = require('express');
 const upload = require('../middleware/upload');
 const { verifyToken, requireAdmin } = require('../middleware/auth');
