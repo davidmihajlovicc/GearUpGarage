@@ -1,40 +1,14 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Aug 22, 2025 at 03:38 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `auto_parts`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brands`
---
-
 CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `brands`
---
 
 INSERT INTO `brands` (`id`, `NAME`) VALUES
 (1, 'Audi'),
@@ -42,11 +16,6 @@ INSERT INTO `brands` (`id`, `NAME`) VALUES
 (3, 'Peugeot'),
 (4, 'Volkswagen');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `cart_items`
---
 
 CREATE TABLE `cart_items` (
   `id` int(11) NOT NULL,
@@ -56,21 +25,13 @@ CREATE TABLE `cart_items` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `models`
---
-
 CREATE TABLE `models` (
   `id` int(11) NOT NULL,
   `brand_id` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `models`
---
+
 
 INSERT INTO `models` (`id`, `brand_id`, `NAME`) VALUES
 (1, 1, 'A3'),
@@ -94,11 +55,7 @@ INSERT INTO `models` (`id`, `brand_id`, `NAME`) VALUES
 (8, 4, 'Golf'),
 (9, 4, 'Passat');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `orders`
---
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
@@ -109,11 +66,7 @@ CREATE TABLE `orders` (
   `order_date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 
---
--- Table structure for table `parts`
---
 
 CREATE TABLE `parts` (
   `id` int(11) NOT NULL,
@@ -131,9 +84,7 @@ CREATE TABLE `parts` (
   `fuel` enum('diesel','gas') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `parts`
---
+
 
 INSERT INTO `parts` (`id`, `name`, `price`, `image`, `brand_id`, `model_id`, `part_type_id`, `title`, `year_from`, `year_to`, `created_at`, `part_subtype_id`, `fuel`) VALUES
 (188, 'Oil filter premium', 22.00, '/uploads/audi_a3_oilfilter.jpg', 1, 1, 7, 'Oil filter', 2014, 2020, '2025-08-22 11:40:43', 15, 'gas'),
@@ -218,11 +169,7 @@ INSERT INTO `parts` (`id`, `name`, `price`, `image`, `brand_id`, `model_id`, `pa
 (267, 'Alternator 180A', 225.00, '/uploads/peugeot_5008_alternator.jpg', 3, 30, 1, 'Alternator', 2017, 2023, '2025-08-22 11:41:53', 3, 'diesel'),
 (268, NULL, 200.00, '/uploads/1755869860655-kocioni-disk-peugeot-5008-ii-2009-2020g-slika-132692171.jpg', 3, 30, 2, 'Front disc left', 2020, 2025, '2025-08-22 13:37:40', 5, NULL);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `part_subtypes`
---
 
 CREATE TABLE `part_subtypes` (
   `id` int(11) NOT NULL,
@@ -230,9 +177,7 @@ CREATE TABLE `part_subtypes` (
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `part_subtypes`
---
+
 
 INSERT INTO `part_subtypes` (`id`, `part_type_id`, `name`) VALUES
 (3, 1, 'alternator'),
@@ -260,20 +205,14 @@ INSERT INTO `part_subtypes` (`id`, `part_type_id`, `name`) VALUES
 (23, 10, 'floor mats'),
 (24, 10, 'gear knob');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `part_types`
---
 
 CREATE TABLE `part_types` (
   `id` int(11) NOT NULL,
   `NAME` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `part_types`
---
+
 
 INSERT INTO `part_types` (`id`, `NAME`) VALUES
 (5, 'body'),
@@ -287,11 +226,7 @@ INSERT INTO `part_types` (`id`, `NAME`) VALUES
 (4, 'transmission'),
 (9, 'ventilation');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `users`
---
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -300,9 +235,7 @@ CREATE TABLE `users` (
   `is_admin` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `users`
---
+
 
 INSERT INTO `users` (`id`, `email`, `password`, `is_admin`) VALUES
 (1, 'admin@shop.com', '$2b$10$u7pQpoE8q1FyfA0HkzT8ZO8y/SnckPHNlqbD/H3vJLClyipN1OCxu', 1),
@@ -314,9 +247,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `is_admin`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `user_profiles`
---
+
 
 CREATE TABLE `user_profiles` (
   `user_id` int(11) NOT NULL,
@@ -332,168 +263,103 @@ CREATE TABLE `user_profiles` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `user_profiles`
---
 
 INSERT INTO `user_profiles` (`user_id`, `full_name`, `phone`, `address_line1`, `house_no`, `address_line2`, `city`, `postal_code`, `country`, `created_at`, `updated_at`) VALUES
 (3, 'David Mihajlovic', '993240774', 'Osjecka', '60', 'd', 'Osijek', '31000', 'Hrvatska', '2025-08-20 15:47:55', '2025-08-20 15:47:55');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `brands`
---
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `NAME` (`NAME`);
 
---
--- Indexes for table `cart_items`
---
+
 ALTER TABLE `cart_items`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `uq_cart_user_part` (`user_id`,`part_id`);
 
---
--- Indexes for table `models`
---
+
 ALTER TABLE `models`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ix_models_brand` (`brand_id`,`NAME`);
 
---
--- Indexes for table `orders`
---
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `part_id` (`part_id`);
 
---
--- Indexes for table `parts`
---
+
 ALTER TABLE `parts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ix_parts_filters` (`brand_id`,`model_id`,`part_type_id`,`year_from`,`year_to`),
   ADD KEY `ix_parts_subtype` (`part_subtype_id`);
 
---
--- Indexes for table `part_subtypes`
---
+
 ALTER TABLE `part_subtypes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `uq_subtype` (`part_type_id`,`name`);
 
---
--- Indexes for table `part_types`
---
+
 ALTER TABLE `part_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `NAME` (`NAME`);
 
---
--- Indexes for table `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `user_profiles`
---
+
 ALTER TABLE `user_profiles`
   ADD PRIMARY KEY (`user_id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `brands`
---
 ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT for table `cart_items`
---
+
+
 ALTER TABLE `cart_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT for table `models`
---
+
 ALTER TABLE `models`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
---
--- AUTO_INCREMENT for table `orders`
---
+
 ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT for table `parts`
---
+
 ALTER TABLE `parts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
 
---
--- AUTO_INCREMENT for table `part_subtypes`
---
 ALTER TABLE `part_subtypes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
---
--- AUTO_INCREMENT for table `part_types`
---
+
 ALTER TABLE `part_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT for table `users`
---
+
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- Constraints for dumped tables
---
 
---
--- Constraints for table `models`
---
 ALTER TABLE `models`
   ADD CONSTRAINT `fk_models_brand` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE;
 
---
--- Constraints for table `orders`
---
+
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`part_id`) REFERENCES `parts` (`id`);
 
---
--- Constraints for table `parts`
---
+
 ALTER TABLE `parts`
   ADD CONSTRAINT `fk_parts_subtype` FOREIGN KEY (`part_subtype_id`) REFERENCES `part_subtypes` (`id`) ON DELETE SET NULL;
 
---
--- Constraints for table `part_subtypes`
---
 ALTER TABLE `part_subtypes`
   ADD CONSTRAINT `fk_subtype_type` FOREIGN KEY (`part_type_id`) REFERENCES `part_types` (`id`) ON DELETE CASCADE;
 
---
--- Constraints for table `user_profiles`
---
 ALTER TABLE `user_profiles`
   ADD CONSTRAINT `fk_user_profiles_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

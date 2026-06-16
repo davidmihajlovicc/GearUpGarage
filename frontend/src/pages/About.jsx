@@ -1,5 +1,5 @@
 export default function About() {
-  const lastUpdated = "21.08.2025"; 
+  const lastUpdated = "10.06.2026"; 
   
   return (
     <div className="page about">
